@@ -1,0 +1,36 @@
+[user]
+    name = showmurai
+    email = show.murai@gmail.com
+
+[color]
+    # colorの設定(以下のコマンドは自動で色つける)
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+
+[alias]
+    st = status -sb
+    sh = show
+    so = remote show origin
+    ft = fetch
+    up = pull --rebase       # pull rebase
+    rbm = rebase master      # masterへのrebaseはよく使うのでalias
+    ad = add
+    ci = commit -a           # modifiedなファイルを全てstageへ
+    cam = commit -a --amend  # 直前のcommitを修正
+    co = checkout
+
+    # branch関連
+    br = branch
+    ba = branch -a
+    bm = branch --merged     # merge済みのbranchを表示
+    bn = branch --no-merged  # mergeしてないbranchを表示
+
+    # logをtree表示
+    hi = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold yellow)― %an%C(reset)%C(bold red)%d%C(reset)' --abbrev-commit --date=relative
+    hist = log --pretty=format:'%C(red reverse)%d%Creset%C(white reverse) %h% Creset %C(green reverse) %an %Creset %C(cyan)%ar%Creset%n%C(white bold)%w(80)%s%Creset%n%n%w(80,2,2)%b'
+[core]
+    pager = lv -c
+    quotepath = false
