@@ -1,5 +1,5 @@
 [user]
-    name = showmurai
+    name = Shotaro Murai
     email = show.murai@gmail.com
 
 [color]
@@ -32,5 +32,10 @@
     hi = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold yellow)― %an%C(reset)%C(bold red)%d%C(reset)' --abbrev-commit --date=relative
     hist = log --pretty=format:'%C(red reverse)%d%Creset%C(white reverse) %h% Creset %C(green reverse) %an %Creset %C(cyan)%ar%Creset%n%C(white bold)%w(80)%s%Creset%n%n%w(80,2,2)%b'
 [core]
-    pager = lv -c
+    editor = vim
+    pager = less
     quotepath = false
+[pager]
+    log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+    show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+    diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
