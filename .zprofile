@@ -4,6 +4,12 @@ export LANG=ja_JP.UTF-8
 BREW_PATH=`/usr/local/bin/brew --prefix`
 export BREW_PATH
 
+# go用PATH指定
+GOPATH=$HOME/go
+export GOPATH
+GOROOT=/usr/local/opt/go/libexec
+export GOROOT
+
 # lessの設定 http://qiita.com/hatchinee/items/586fb1c4915e2bb5c03b
 export LESS='-gj10 --RAW-CONTROL-CHARS'
 
@@ -12,15 +18,17 @@ typeset -U path cdpath fpath manpath
 
 # homebrewとcoreutils優先の設定
 path=(
-    #haskell packages
-    $HOME/.cabal/bin(N-/)
-
-    $HOME/bin(N-/)
+    # haskell packages
+    # $HOME/.cabal/bin(N-/)
+    # $HOME/bin(N-/)
 
     # 標準のツールとかもhomebrewで導入したのを優先させる
     $BREW_PATH/bin(N-/)
-
     $BREW_PATH/opt/ruby/bin(N-/)
+
+    # go用PATH設定
+    $GOPATH/bin
+    $GOROOT/bin
 
     #デフォルトのコマンドをGNUコマンドで
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin(N-/)
