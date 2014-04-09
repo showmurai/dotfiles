@@ -172,13 +172,13 @@ NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-smartchr'
 NeoBundle 'osyo-manga/vim-over'
-
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 
 " for python
