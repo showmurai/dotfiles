@@ -182,6 +182,7 @@ NeoBundle 'kana/vim-smartchr'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " for python
 NeoBundle 'dannyob/quickfixstatus'
@@ -194,7 +195,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'nsf/gocode'
 NeoBundle 'Blackrush/vim-gocode'
 
-
+" Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
 " ...
 
