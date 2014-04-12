@@ -73,7 +73,7 @@ export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Hom
 
 # PYTHON用設定（pythonbrewを使用）
 # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
-export WORKON_HOME=$HOME/.virtualenvs
+# export WORKON_HOME=$HOME/.virtualenvs
 
 # # perlbrew用環境設定
 # export PATH=$PATH:$HOME/perl5/perlbrew/bin

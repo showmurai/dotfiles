@@ -45,6 +45,10 @@ setopt magic_equal_subst # =以降も補完する(--prefix=/usrなど)
 setopt prompt_subst      # プロンプト定義内で変数置換やコマンド置換を扱う
 setopt notify            # バックグラウンドジョブの状態変化を即時報告する
 setopt equals            # =commandを`which command`と同じ処理にする
+#補完が/で終って、つぎが、語分割子か/かコマンドの後(;とか&)だったら、補完末尾の/を取る
+unsetopt AUTO_REMOVE_SLASH
+#ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
+setopt MARK_DIRS
 
 ### Complement ###
 #補完機能を有効にする
@@ -52,6 +56,7 @@ autoload -U compinit
 compinit
 setopt auto_list               # 補完候補を一覧で表示する(d)
 setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
+setopt AUTO_PARAM_KEYS         #変数名を補完する
 setopt list_packed             # 補完候補をできるだけ詰めて表示する
 setopt list_types              # 補完候補にファイルの種類も表示する
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
@@ -81,6 +86,19 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 # 補完候補を黄色に
 zstyle ':completion:*:descriptions' format '%BCompleting%b %F{yellow}%U%d%u'
+
+#コマンドにsudoを付けても補完
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+#補完リストが多いときに尋ねない
+LISTMAX=1000
+
+# 補完候補のメニュー選択で、矢印キーの代わりにhjklで移動出来るようにする。
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 
 # google で検索できる
 function google() {
@@ -187,7 +205,7 @@ zle -N alls
 bindkey "\C-m" alls
 
 # zawの設定
-source ~/zsh_plugins/zaw/zaw.zsh
+source ~/zaw/zaw.zsh
 bindkey '^[d' zaw-cdr
 bindkey '^[g' zaw-git-branches
 bindkey '^[@' zaw-gitdir
