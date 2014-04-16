@@ -21,8 +21,8 @@ if has('multi_byte_ime')
 endif
 
 set fileformats=unix,dos
-" indent ---------
 
+" indent ---------
 set smarttab
 set expandtab
 set shiftround
@@ -161,16 +161,13 @@ NeoBundle 'Shougo/vimproc', {
       \    },
       \ }
 
-" My Bundles here:
-"
-" Note: You don't set neobundle setting in .gvimrc!
-" Original repos on github
+" Neobundle
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle "Shougo/neosnippet-snippets"
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -182,7 +179,7 @@ NeoBundle 'kana/vim-smartchr'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
+" NeoBundle 'editorconfig/editorconfig-vim'
 
 " for python
 NeoBundle 'dannyob/quickfixstatus'
@@ -190,6 +187,7 @@ NeoBundle 'andviro/flake8-vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'cohama/vim-hier'
 NeoBundle 'thinca/vim-quickrun'
+" NeoBundle 'davidhalter/jedi-vim.git'
 
 " for go
 NeoBundle 'nsf/gocode'
@@ -197,7 +195,6 @@ NeoBundle 'Blackrush/vim-gocode'
 
 " Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
-" ...
 
 syntax enable
 filetype plugin indent on
