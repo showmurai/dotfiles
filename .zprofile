@@ -30,6 +30,10 @@ path=(
     $GOPATH/bin
     $GOROOT/bin
 
+    # for ruby
+    $HOME/.rbenv/bin
+
+
     #デフォルトのコマンドをGNUコマンドで
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin(N-/)
 
@@ -85,3 +89,12 @@ export WORKON_HOME=$HOME/.virtualenvs
 # 単語の区切り文字を指定する
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+
+if which rbenv > /dev/null; then
+    # rbenv initがやっていること #
+    # - $RBENV_ROOT/shims以下にPATHを通す
+    # - rbenvへの補完関数のロード
+    # - rehash
+    # - その他
+    eval "$(rbenv init -)"
+fi
