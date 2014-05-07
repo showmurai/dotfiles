@@ -80,6 +80,16 @@ set showtabline=2
 "折りたたみを無効
 set nofoldenable
 
+" MacVim Setting
+if has('gui_macvim')
+    set transparency=10 " 透明度を指定
+    set guifont=Osaka-Mono:h20 " フォント指定
+    set lines=63 columns=250 " ウィンドウサイズをセット はみだした部分は自動的に修正させて画面いっぱいに表示させる
+    set guioptions-=T " ウィンドウ上部のタブ部分を無効に
+    set imdisable " IMEを無効に
+    colorscheme desert " カラースキーマを指定
+endif
+
 " netrwのnoteを表示させない
 let g:netrw_localcopycmd=''
 
@@ -179,7 +189,7 @@ NeoBundle 'kana/vim-smartchr'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " for python
 NeoBundle 'dannyob/quickfixstatus'
@@ -187,7 +197,7 @@ NeoBundle 'andviro/flake8-vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'cohama/vim-hier'
 NeoBundle 'thinca/vim-quickrun'
-" NeoBundle 'davidhalter/jedi-vim.git'
+NeoBundle 'davidhalter/jedi-vim.git'
 
 " for go
 NeoBundle 'nsf/gocode'
@@ -329,7 +339,7 @@ nnoremap <silent> [unite]s
         \ :<C-u>Unite -buffer-name=files -no-split
         \ jump_point file_point buffer_tab
         \ file_rec:! file file/new file_mru<CR>
-colorscheme calmar256-dark
+colorscheme molokai
 
 " Start insert.
 "let g:unite_enable_start_insert = 1
