@@ -101,18 +101,18 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
 # google で検索できる
-function google() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            str="$str+$i"
-        done
-        str=`echo $str | sed 's/^\+//'`
-        opt='search?num=50&hl=ja&lr=lang_ja'
-        opt="${opt}&q=${str}"
-    fi
-    w3m http://www.google.co.jp/$opt
-}
+# function google() {
+#    local str opt
+#    if [ $# != 0 ]; then
+#        for i in $*; do
+#            str="$str+$i"
+#        done
+#        str=`echo $str | sed 's/^\+//'`
+#        opt='search?num=50&hl=ja&lr=lang_ja'
+#        opt="${opt}&q=${str}"
+#    fi
+#    w3m http://www.google.co.jp/$opt
+# }
 
 # rootユーザ時(太字にし、アンダーバーをつける)
 if [ ${UID} -eq 0 ]; then
