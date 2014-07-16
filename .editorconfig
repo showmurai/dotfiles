@@ -11,5 +11,12 @@ indent_size = 4
 [*.js]
 indent_style = space
 indent_size = 2
+
 [*.c]
+indent_style = tab
+
+[*.cpp]
+indent_style = tab
+
+[*.h]
 indent_style = tab

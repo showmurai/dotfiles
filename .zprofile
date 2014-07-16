@@ -7,7 +7,7 @@ export BREW_PATH
 # go用PATH指定
 GOPATH=$HOME/go
 export GOPATH
-GOROOT=/usr/local/bin/go
+GOROOT=/usr/local/
 export GOROOT
 
 # lessの設定 http://qiita.com/hatchinee/items/586fb1c4915e2bb5c03b
