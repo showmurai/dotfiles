@@ -186,9 +186,10 @@ alias gad='git ad'
 alias gci='git ci'
 
 alias d3='ssh smurai@10.30.138.20'
+alias d3con='screen /dev/tty.usbserial 115200'
 alias d3m='ssh smurai@10.30.138.22'
-alias d3ssh='ssh root@10.30.105.2'
-alias d3mssh='ssh root@10.30.105.1'
+alias d3ssh='ssh root@10.30.105.11'
+alias d3mssh='ssh root@10.30.105.10'
 
 # cd したら自動で lsしてくれる
 function chpwd() { ls }

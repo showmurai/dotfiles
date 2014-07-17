@@ -160,8 +160,8 @@ set runtimepath+=/usr/local/Cellar/go/1.1.2/libexec/misc/vim
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
- " Recommended to install
- " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -184,6 +184,7 @@ NeoBundle 'Shougo/neomru.vim'
 
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'kana/vim-operator-replace'
+
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'kana/vim-smartchr'
 NeoBundle 'osyo-manga/vim-over'
@@ -198,6 +199,7 @@ NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'cohama/vim-hier'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'davidhalter/jedi-vim.git'
+NeoBundle 'hachibeeDI/python_hl_lvar.vim'
 
 " for go
 NeoBundle 'nsf/gocode'
