@@ -4,14 +4,11 @@ export LANG=ja_JP.UTF-8
 BREW_PATH=`/usr/local/bin/brew --prefix`
 export BREW_PATH
 
-# go用PATH指定
-GOPATH=$HOME/go
-export GOPATH
-GOROOT=/usr/local/
-export GOROOT
-
 # lessの設定 http://qiita.com/hatchinee/items/586fb1c4915e2bb5c03b
 export LESS='-gj10 --RAW-CONTROL-CHARS'
+
+GOPATH=$HOME/go
+export GOPATH
 
 # 以下のパスについては重複を削除する
 typeset -U path cdpath fpath manpath
@@ -26,20 +23,14 @@ path=(
     $BREW_PATH/bin(N-/)
     $BREW_PATH/opt/ruby/bin(N-/)
 
-    # go用PATH設定
-    $GOPATH/bin
-    $GOROOT/bin
-
     # for ruby
     $HOME/.rbenv/bin
-
 
     #デフォルトのコマンドをGNUコマンドで
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin(N-/)
 
     /usr/bin(N-/)
     /bin(N-/)
-    #sbin
     /usr/local/sbin(N-/)
     /usr/sbin(N-/)
     /sbin(N-/)
@@ -47,7 +38,6 @@ path=(
     # $PATH
     )
 export path
-
 
 # # カラー設定
 export LSCOLORS=ExFxCxdxBxegedabagacad
@@ -88,7 +78,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 # 単語の区切り文字を指定する
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-
 
 if which rbenv > /dev/null; then
     # rbenv initがやっていること #
