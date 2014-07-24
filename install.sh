@@ -4,7 +4,7 @@ path=`pwd`
 echo "$path"
 
 if [ ! -e ~/zaw ]; then
-    git clone git://github.com/zsh-users/zaw.git
+    git clone git://github.com/zsh-users/zaw.git ~/zaw/
 fi
 
 if [ ! -e ~/.vim/bundle ]; then
