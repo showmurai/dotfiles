@@ -1,0 +1,21 @@
+
+# 画面を垂直方向に分割する
+set vertical-split = no
+
+# 分割したウィンドウの下画面サイズを % で指定（行数指定も可）
+set split-view-height = 80%
+
+# 差分の前後の表示行数（diff-context)を指定
+set diff-context = 6
+
+set blame-view = date:local author:full id line-number:true,interval=1 text
+set main-view = line-number:true,interval=10 date:local author:full id commit-title:true,graph=true,refs=true
+set refs-view = date:local author:full id ref:true commit-title:true
+set status-view = file-name status:long
+set tree-view = date:local author:full id file-size:unit mode file-name
+
+set line-graphics = ascii
+set horizontal-scroll = 20%
+
+# Esc-c で、コミットハッシュ値をコピーできるようにする
+#bind generic <Esc>c !@bash -c "cut -c-7 <<<%(commit) | xargs echo -n | pbcopy"
