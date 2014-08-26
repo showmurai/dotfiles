@@ -83,12 +83,19 @@ export CLICOLOR=true
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+
+# 補完時に大文字小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # 補完候補を黄色に
 zstyle ':completion:*:descriptions' format '%BCompleting%b %F{yellow}%U%d%u'
 
 #コマンドにsudoを付けても補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+# tig補完
+# TODO: バージョンとか上がってもtig-completion.bashを読み込めるようにする方法を探す
+# [[ -f `which /usr/local/opt/tig`/etc/bash_completion.d/tig-completion.bash ]] && . `which /usr/local/opt/tig`/etc/bash_completion.d/tig-completion.bash
 
 #補完リストが多いときに尋ねない
 LISTMAX=1000
@@ -183,7 +190,7 @@ alias ghs='git hist'
 alias gba='git ba'
 alias gbr='git br'
 alias gad='git ad'
-alias gci='git ci'
+alias gci='git commit -v'
 
 alias d3='ssh smurai@10.30.138.20'
 alias d3con='screen /dev/tty.usbserial 115200'
