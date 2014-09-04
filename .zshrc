@@ -88,7 +88,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # 補完候補を黄色に
-zstyle ':completion:*:descriptions' format '%BCompleting%b %F{yellow}%U%d%u'
+# zstyle ':completion:*:descriptions' format '%BCompleting%b %F{yellow}%U%d%u'
 
 #コマンドにsudoを付けても補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
