@@ -19,3 +19,7 @@ set horizontal-scroll = 20%
 
 # Esc-c で、コミットハッシュ値をコピーできるようにする
 #bind generic <Esc>c !@bash -c "cut -c-7 <<<%(commit) | xargs echo -n | pbcopy"
+
+
+# tigrc manual page
+# http://jonas.nitro.dk/tig/tigrc.5.html
