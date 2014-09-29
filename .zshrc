@@ -172,6 +172,7 @@ alias m='mvim'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias sed='gsed'
+alias ag="ag --pager 'less -R'"
 # for tmux
 alias tmux-copy='tmux save-buffer - | reattach-to-user-namespace pbcopy'
 
