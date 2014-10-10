@@ -156,8 +156,6 @@ set runtimepath+=/usr/local/Cellar/go/1.1.2/libexec/misc/vim
  endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -209,6 +207,8 @@ NeoBundle 'Blackrush/vim-gocode'
 
 " Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
+
+call neobundle#end()
 
 syntax enable
 filetype plugin indent on
