@@ -109,7 +109,6 @@ nnoremap Y y$
 " Ctrl + C は、`insert modeの強制終了`なので微妙に挙動がかわる。うざいので置き換える
 inoremap <C-c> <Esc>
 
-" ---- insert mode これはお好みで
 "emacs like key-bind in insert mode
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
@@ -126,6 +125,18 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <C-h> <Backspace>
 cnoremap <C-d> <Del>
+
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
 
 " move current directory on the above of file is editing.
 " via: <http://vim-users.jp/2009/09/hack69/> {{{
