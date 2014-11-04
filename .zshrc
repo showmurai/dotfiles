@@ -196,7 +196,7 @@ alias gbr='git br'
 alias gad='git ad'
 alias gci='git commit -v'
 
-alias d3='ssh smurai@10.30.138.20'
+alias d3='ssh smurai@10.30.138.21'
 alias d3con='screen /dev/tty.usbserial 115200'
 alias d3m='ssh smurai@10.30.138.22'
 alias d3ssh='ssh root@10.30.105.11'

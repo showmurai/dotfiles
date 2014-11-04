@@ -36,6 +36,8 @@ set smartcase
 set wrapscan
 set hlsearch
 
+" タブを画面上でなん文字で表示するか
+set tabstop=2
 " use 4 as default tab width, and will customize in $MY_VIMRUNTIME/after/ftplugin/*.vim
 set shiftwidth=4 softtabstop=4
 " A list of file patterns is ignored when expanding
@@ -174,8 +176,7 @@ NeoBundle 'Shougo/vimproc', {
 " Neobundle
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
-
-NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -195,6 +196,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 " for python
 NeoBundle 'dannyob/quickfixstatus'
 NeoBundle 'andviro/flake8-vim'
+" NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'cohama/vim-hier'
 NeoBundle 'thinca/vim-quickrun'
@@ -224,17 +226,17 @@ NeoBundleCheck
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+" let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplcache_min_syntax_length = 3
+" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+" let g:neocomplcache_dictionary_filetype_lists = {
+"    \ 'default' : ''
+"    \ }
 
 " neosnippet settings
 " Plugin key-mappings.
@@ -242,6 +244,56 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
+
+"------------------------------------
+" neocomplete.vim
+"------------------------------------
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  " return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" jedi-vim
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -261,22 +313,22 @@ endif
 
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+" inoremap <expr><C-g>     neocomplcache#undo_completion()
+" inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"  return neocomplcache#smart_close_popup() . "\<CR>"
+" endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplcache#close_popup()
+" inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " over.vim {{{
 " over.vimの起動
@@ -297,6 +349,7 @@ let g:PyFlakeDisabledMessages = 'E501,E121,E303'
 let g:PyFlakeSigns = 0
 " flake8-autoをかけるためのコマンド。visual-modeでの範囲選択に対応
 let g:PyFlakeRangeCommand = 'Q'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
 " }}}
 
 " キーバインドの設定は好みで。以下は例
