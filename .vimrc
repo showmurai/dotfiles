@@ -272,6 +272,8 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
+" doc string は表示しない
+autocmd FileType python setlocal completeopt-=preview
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
