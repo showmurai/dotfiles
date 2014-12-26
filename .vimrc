@@ -303,9 +303,6 @@ let g:jedi#auto_vim_configuration = 0
 
 " 'r'のキーバインドを無効化(quickrunとかぶるため)
 command! -nargs=0 JediRename :call jedi#rename()
-" かわりに 'k' に変更
-let g:jedi#rename_command = ""
-let g:jedi#pydoc = "k"
 
 if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
