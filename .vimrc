@@ -301,6 +301,12 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 
+" 'r'のキーバインドを無効化(quickrunとかぶるため)
+command! -nargs=0 JediRename :call jedi#rename()
+" かわりに 'k' に変更
+let g:jedi#rename_command = ""
+let g:jedi#pydoc = "k"
+
 if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
 endif
@@ -353,7 +359,7 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 " }}}
 
 
-" Flake8-vim {{{
+" Flake8-vim
 let g:PyFlakeOnWrite = 1
 " 無視する警告の種類
 " E501 => 行ごとの文字数制限, E121 => 次行のインデントはひとつだけ, E303 => 改行の数が多すぎる
@@ -363,7 +369,6 @@ let g:PyFlakeSigns = 0
 " flake8-autoをかけるためのコマンド。visual-modeでの範囲選択に対応
 let g:PyFlakeRangeCommand = 'Q'
 NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": {"insert": 1, "filetypes": ["python", "python3", "djangohtml"]}}
-" }}}
 
 " キーバインドの設定は好みで。以下は例
 nnoremap [Show] <Nop>
