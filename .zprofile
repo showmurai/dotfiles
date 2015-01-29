@@ -55,8 +55,8 @@ export GNUTERM=x11
 # # Cabal(Haskell)用設定
 # export PATH=$PATH:$HOME/.cabal/bin
 # 
-# # rbenv,phpenv用設定
-# export PATH=$HOME/.phpenv/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+# rbenv,phpenv用設定
+export PATH=$HOME/.phpenv/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 
 # JAVA用PATH指定
 export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
