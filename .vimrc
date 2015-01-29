@@ -1,4 +1,7 @@
 " show.murai vim life
+" ===============VIM normal setting===============
+
+" viを起動してしまったときの対策
 set nocompatible
 
 " 行番号を表示
@@ -13,26 +16,30 @@ set cursorline
 " クリップボードを共有
 set clipboard+=unnamed
 
-" inoremap -> インサートモードのキーバインド設定
+" インサートモードのキーバインド設定
 inoremap <C-d> <del>
 
+" マルチバイト文字がノーマルモードで暴れないため
 if has('multi_byte_ime')
   set iminsert=0 imsearch=0
 endif
 
+" エンコードの設定
 set fileformats=unix,dos
 
-" indent ---------
+" インデント
 set smarttab
+" タブのかわりにスペースを使う
 set expandtab
+" 'shiftwidth'の倍数でインデントを入れる
 set shiftround
 
-" ---- search behavior 
+" インクリメンタルサーチ
 set incsearch
 set ignorecase
 set smartcase
 
-"set nowrapscan
+" 検索がファイル末尾まで行ったらファイル先頭に戻る
 set wrapscan
 set hlsearch
 
@@ -225,7 +232,7 @@ call neobundle#end()
 
 syntax enable
 filetype plugin indent on
-"
+
 " Brief help
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles
