@@ -39,3 +39,5 @@
     log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
     show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
     diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[push]
+	default = matching
