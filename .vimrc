@@ -104,7 +104,6 @@ let g:netrw_localcopycmd=''
 
 " nnoremap -> ノーマルモードのキーバインド設定
 nnoremap ; :
-nnoremap : ;
 
 " 以下あんま最低限ではないもの
 nnoremap [Show] <Nop>
@@ -274,7 +273,6 @@ NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'cohama/vim-hier'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'davidhalter/jedi-vim.git'
-NeoBundle 'hachibeeDI/python_hl_lvar.vim'
 
 " for go
 NeoBundle 'nsf/gocode'
