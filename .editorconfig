@@ -20,3 +20,7 @@ indent_style = tab
 
 [*.h]
 indent_style = tab
+
+[*.rb]
+indent_style = space
+indent_size = 2
