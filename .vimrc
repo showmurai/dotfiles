@@ -104,6 +104,7 @@ let g:netrw_localcopycmd=''
 
 " nnoremap -> ノーマルモードのキーバインド設定
 nnoremap ; :
+nnoremap : ;
 
 " 以下あんま最低限ではないもの
 nnoremap [Show] <Nop>
