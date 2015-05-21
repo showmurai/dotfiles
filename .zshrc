@@ -7,11 +7,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-# プロンプト
-# 2行表示
-#PROMPT="%{${fg[red]}%}[%n@%m]%{${reset_color}%} %~
-#%# "
-
 # プロンプト指定
 PROMPT="
 %{${fg[red]}%}[%n@%m] %{${fg[yellow]}%}%~%{${reset_color}%}
@@ -20,14 +15,9 @@ PROMPT="
 # プロンプト指定(コマンドの続き)
 PROMPT2='[%n]> '
 
-# もしかして時のプロンプト指定
-# SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
-
 # ------------------------------
 # General Settings
 # ------------------------------
-# fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
@@ -80,6 +70,9 @@ export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 export ZLS_COLORS=$LS_COLORS
 # lsコマンド時、自動で色がつく(ls -Gのようなもの？)
 export CLICOLOR=true
+
+# gnuplot等のグラフ出力先をX11に指定
+export GNUTERM=x11
 
 # 補完候補に色を付ける
 ## 補完リストをグループ分けする
@@ -196,12 +189,6 @@ alias gbr='git br'
 alias gad='git ad'
 alias gci='git commit -v'
 
-alias d3='ssh smurai@10.30.138.21'
-alias d3con='screen /dev/tty.usbserial 115200'
-alias d3m='ssh smurai@10.30.138.22'
-alias d3ssh='ssh root@10.30.105.11'
-alias d3mssh='ssh root@10.30.105.10'
-
 # cd したら自動で lsしてくれる
 function chpwd() { ls }
 
@@ -258,3 +245,6 @@ setopt re_match_pcre
 
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
+
+# autojump の設定
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
