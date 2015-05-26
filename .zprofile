@@ -18,6 +18,7 @@ export RBENV_ROOT=/usr/local/var/rbenv
 GOPATH=$HOME/go
 export GOPATH
 
+
 # 以下のパスについては重複を削除する
 typeset -U path cdpath fpath manpath
 
@@ -29,7 +30,7 @@ path=(
     # homebrew $RBENV_ROOT/bin(N-/)で導入したのを優先で使用する
     $BREW_PATH/bin(N-/)
 
-    #デフォルトのコマンドをGNUコマンドで
+    # デフォルトのコマンドをGNUコマンドで
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin(N-/)
     $(/usr/local/bin/brew --prefix gnu-sed)/libexec/gnubin(N-/)
 
@@ -38,6 +39,9 @@ path=(
     /usr/local/sbin(N-/)
     /usr/sbin(N-/)
     /sbin(N-/)
+
+    # go向けのパス
+    $HOME/go/bin
     )
 export path
 
