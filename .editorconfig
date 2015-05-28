@@ -1,26 +1,42 @@
 # top-most EditorConfig file
 root = true
 
+# common setting
+[*]
+charset = utf-8
+end_of_line = lf
+
+# for shell script
+[*.sh]
+indent_style = tab
+
+# for go-lang
 [*.go]
 indent_style = tab
 
+# for python
 [*.py]
 indent_style = space
 indent_size = 4
 
+# for javascript
 [*.js]
 indent_style = space
 indent_size = 2
 
+# for c-lang
 [*.c]
 indent_style = tab
 
+# for c++
 [*.cpp]
 indent_style = tab
 
+# for header file
 [*.h]
 indent_style = tab
 
+# for ruby
 [*.rb]
 indent_style = space
 indent_size = 2
