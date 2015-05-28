@@ -189,6 +189,11 @@ alias gbr='git br'
 alias gad='git ad'
 alias gci='git commit -v'
 
+# ------temp alias----
+alias complesso_chef='ssh -i ~/keys/murai_test.key A13978@10.4.29.11'
+alias cyberss_chef='ssh -i ~/keys/murai_test.key A13978@10.4.26.11'
+alias lodeo_chef='ssh -i ~/keys/murai_test.key A13978@10.4.31.13'
+
 # cd したら自動で lsしてくれる
 function chpwd() { ls }
 
