@@ -9,10 +9,12 @@ end_of_line = lf
 # for shell script
 [*.sh]
 indent_style = tab
+indent_size = 4
 
 # for go-lang
 [*.go]
 indent_style = tab
+indent_size = 4
 
 # for python
 [*.py]
@@ -27,14 +29,17 @@ indent_size = 2
 # for c-lang
 [*.c]
 indent_style = tab
+indent_size = 4
 
 # for c++
 [*.cpp]
 indent_style = tab
+indent_size = 4
 
 # for header file
 [*.h]
 indent_style = tab
+indent_size = 4
 
 # for ruby
 [*.rb]
