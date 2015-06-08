@@ -3,13 +3,13 @@
 path=`pwd`
 echo "$path"
 
-if [ ! -e ~/zaw ]; then
-    git clone git://github.com/zsh-users/zaw.git ~/zaw/
-fi
+# if [ ! -e ~/zaw ]; then
+# 	git clone git://github.com/zsh-users/zaw.git ~/zaw/
+# fi
 
 if [ ! -e ~/.vim/bundle ]; then
-    mkdir -p ~/.vim/bundle
-    git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+	mkdir -p ~/.vim/bundle
+	git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
 ln -fs "$path"/.zprofile $HOME/.zprofile
