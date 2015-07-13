@@ -278,6 +278,7 @@ NeoBundle 'davidhalter/jedi-vim.git'
 " for go
 NeoBundle 'nsf/gocode'
 NeoBundle 'Blackrush/vim-gocode'
+NeoBundle 'koron/codic-vim'
 
 " Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -472,7 +473,7 @@ nnoremap <silent> [unite]s
         \ :<C-u>Unite -buffer-name=files -no-split
         \ jump_point file_point buffer_tab
         \ file_rec:! file file/new file_mru<CR>
-colorscheme molokai
+colorscheme desertEx
 
 " Start insert.
 "let g:unite_enable_start_insert = 1

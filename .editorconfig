@@ -6,10 +6,15 @@ root = true
 charset = utf-8
 end_of_line = lf
 
+# for makefile
+[Makefile]
+indent_style = tab
+indent_size = 8
+
 # for shell script
 [*.sh]
-indent_style = tab
-indent_size = 4
+indent_style = space
+indent_size = 2
 
 # for go-lang
 [*.go]
@@ -43,5 +48,15 @@ indent_size = 4
 
 # for ruby
 [*.rb]
+indent_style = space
+indent_size = 2
+
+# for ruby
+[*.yml]
+indent_style = space
+indent_size = 2
+
+# for xml
+[*.xml]
 indent_style = space
 indent_size = 2
