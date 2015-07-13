@@ -8,7 +8,7 @@ end_of_line = lf
 
 # for shell script
 [*.sh]
-indent_style = tab
+indent_style = space
 indent_size = 4
 
 # for go-lang
