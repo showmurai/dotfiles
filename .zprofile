@@ -55,7 +55,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # export PATH=$PATH:$HOME/.cabal/bin
 
 # JAVA用PATH指定
-# export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+#
+# THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/a13978/.gvm/bin/gvm-init.sh" ]] && source "/Users/a13978/.gvm/bin/gvm-init.sh"
 
 # NODEBREW用PATH指定
 # export PATH=$HOME/.nodebrew/current/bin:$PATH
