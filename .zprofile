@@ -79,3 +79,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 # - rbenvへの補完関数のロード
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# scala
+export PATH=$PATH:/usr/local/src/scala/bin
+export SCALA_HOME=/usr/local/src/scala
