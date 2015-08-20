@@ -40,4 +40,8 @@
     show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
     diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 [push]
-	default = matching
+    default = matching
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
