@@ -26,6 +26,7 @@ endif
 
 " エンコードの設定
 set fileformats=unix,dos
+set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
 
 " インデント
 set smarttab
@@ -282,6 +283,9 @@ NeoBundle 'koron/codic-vim'
 
 " Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
+
+" for scala
+NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
 
