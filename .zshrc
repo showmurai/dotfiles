@@ -6,6 +6,9 @@ colors
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+setopt HIST_IGNORE_DUPS           # 前と重複する行は記録しない
+setopt HIST_IGNORE_ALL_DUPS       # 履歴中の重複行をファイル記録前に無くす
+setopt HIST_IGNORE_SPACE          # 行頭がスペースのコマンドは記録しない
 
 # プロンプト指定
 PROMPT="
@@ -54,6 +57,9 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 # Ctrl+A とかを有効にする
 bindkey -e
 
+# ペーストモードを無効にする
+unset zle_bracketed_paste
+
 ### Glob ###
 setopt extended_glob # グロブ機能を拡張する
 unsetopt caseglob    # ファイルグロブで大文字小文字を区別しない
@@ -91,7 +97,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 
 # tig補完
 # TODO: バージョンとか上がってもtig-completion.bashを読み込めるようにする方法を探す
-# [[ -f `which /usr/local/opt/tig`/etc/bash_completion.d/tig-completion.bash ]] && . `which /usr/local/opt/tig`/etc/bash_completion.d/tig-completion.bash
+[[ -f /usr/local/Cellar/tig/2.1.1/etc/bash_completion.d/tig-completion.bash ]] && . /usr/local/Cellar/tig/2.1.1/etc/bash_completion.d/tig-completion.bash
 
 #補完リストが多いときに尋ねない
 LISTMAX=1000
@@ -103,20 +109,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
-# google で検索できる
-# function google() {
-#    local str opt
-#    if [ $# != 0 ]; then
-#        for i in $*; do
-#            str="$str+$i"
-#        done
-#        str=`echo $str | sed 's/^\+//'`
-#        opt='search?num=50&hl=ja&lr=lang_ja'
-#        opt="${opt}&q=${str}"
-#    fi
-#    w3m http://www.google.co.jp/$opt
-# }
-
 # rootユーザ時(太字にし、アンダーバーをつける)
 if [ ${UID} -eq 0 ]; then
   tmp_prompt="%B%U${tmp_prompt}%u%b"
@@ -124,24 +116,6 @@ if [ ${UID} -eq 0 ]; then
   tmp_rprompt="%B%U${tmp_rprompt}%u%b"
   tmp_sprompt="%B%U${tmp_sprompt}%u%b"
 fi
-
-# PROMPT=$tmp_prompt    # 通常のプロンプト
-# PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
-# RPROMPT=$tmp_rprompt  # 右側のプロンプト
-# SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
-# SSHログイン時のプロンプト
-# [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-#  PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-# ;
-
-### Title (user@hostname) ###
-# case "${TERM}" in
-# kterm*|xterm*|)
-#   precmd() {
-#     echo -ne "\033]0;${USER}@${HOST%%.*}\007"
-#   }
-#   ;;
-# esac
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
@@ -207,29 +181,6 @@ alls() {
 }
 zle -N alls
 bindkey "\C-m" alls
-
-# zawの設定
-# source ~/zaw/zaw.zsh
-# bindkey '^[d' zaw-cdr
-# bindkey '^[g' zaw-git-branches
-# bindkey '^[@' zaw-gitdir
-
-# function zaw-src-gitdir () {
-#   _dir=$(git rev-parse --show-cdup 2>/dev/null)
-#   if [ $? -eq 0 ]
-#   then
-#     candidates=( $(git ls-files ${_dir} | perl -MFile::Basename -nle \
-#                                                '$a{dirname $_}++; END{delete $a{"."}; print for sort keys %a}') )
-#   fi
-#   actions=("zaw-src-gitdir-cd")
-#   act_descriptions=("change directory in git repos")
-# }
-# 
-# function zaw-src-gitdir-cd () {
-#   BUFFER="cd $1"
-#   zle accept-line
-# }
-# zaw-register-src -n gitdir zaw-src-gitdir
 
 # pip zsh completion start
 function _pip_completion {
