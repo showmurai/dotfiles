@@ -48,6 +48,8 @@ export path
 # zsh-completions の設定
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
 # TeXLive用PATH指定
 # export PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin
 

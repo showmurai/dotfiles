@@ -142,7 +142,7 @@ alias m='mvim'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias sed='gsed'
-alias ag="ag --pager 'less -R'"
+# alias ag="ag --pager 'less -R'"
 # for tmux
 alias tmux-copy='tmux save-buffer - | reattach-to-user-namespace pbcopy'
 
@@ -162,11 +162,12 @@ alias gba='git ba'
 alias gbr='git br'
 alias gad='git ad'
 alias gci='git commit -v'
+alias gls='git ls-files'
 
 # ------temp alias----
 alias complesso_chef='ssh -i ~/keys/murai_test.key A13978@10.4.29.11'
-alias cyberss_chef='ssh -i ~/keys/murai_test.key A13978@10.4.26.11'
-alias lodeo_chef='ssh -i ~/keys/murai_test.key A13978@10.4.31.13'
+alias cyberss_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.26.11'
+alias lodeo_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.31.13'
 
 # cd したら自動で lsしてくれる
 function chpwd() { ls }
@@ -194,7 +195,7 @@ function _pip_completion {
 compctl -K _pip_completion pip
 # pip zsh completion end
 
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 # PCRE 互換の正規表現を使う
 setopt re_match_pcre
@@ -219,3 +220,8 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# Reading for aws cli
+# source /usr/local/bin/aws_zsh_completer.sh
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

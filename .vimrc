@@ -94,7 +94,7 @@ set nofoldenable
 if has('gui_macvim')
     set transparency=10 " 透明度を指定
     set guifont=Osaka-Mono:h20 " フォント指定
-    set lines=63 columns=250 " ウィンドウサイズをセット はみだした部分は自動的に修正させて画面いっぱいに表示させる
+    set lines=100 columns=300 " ウィンドウサイズをセット はみだした部分は自動的に修正させて画面いっぱいに表示させる
     set guioptions-=T " ウィンドウ上部のタブ部分を無効に
     set imdisable " IMEを無効に
     colorscheme desert " カラースキーマを指定
@@ -266,26 +266,27 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'Shougo/neoyank.vim'
 
 " for python
-NeoBundle 'dannyob/quickfixstatus'
-NeoBundle 'andviro/flake8-vim'
+" NeoBundle 'dannyob/quickfixstatus'
+" NeoBundle 'andviro/flake8-vim'
 " NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'tell-k/vim-autopep8'
-NeoBundle 'cohama/vim-hier'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'davidhalter/jedi-vim.git'
+" NeoBundle 'tell-k/vim-autopep8'
+" NeoBundle 'cohama/vim-hier'
+" NeoBundle 'davidhalter/jedi-vim.git'
+" NeoBundle 'thinca/vim-quickrun'
 
 " for go
-NeoBundle 'nsf/gocode'
-NeoBundle 'Blackrush/vim-gocode'
+" NeoBundle 'nsf/gocode'
+" NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'koron/codic-vim'
 
 " Colour Scheme Plugin
 NeoBundle 'ujihisa/unite-colorscheme'
 
 " for scala
-NeoBundle 'derekwyatt/vim-scala'
+" NeoBundle 'derekwyatt/vim-scala'
 
 call neobundle#end()
 
@@ -480,22 +481,22 @@ nnoremap <silent> [unite]s
 colorscheme desertEx
 
 " Start insert.
-"let g:unite_enable_start_insert = 1
-"let g:unite_enable_short_source_names = 1
+" let g:unite_enable_start_insert = 1
+" let g:unite_enable_short_source_names = 1
 
 " To track long mru history.
-"let g:unite_source_file_mru_long_limit = 3000
-"let g:unite_source_directory_mru_long_limit = 3000
+" let g:unite_source_file_mru_long_limit = 3000
+" let g:unite_source_directory_mru_long_limit = 3000
 
 " Like ctrlp.vim settings.
-"let g:unite_enable_start_insert = 1
-"let g:unite_winheight = 10
-"let g:unite_split_rule = 'botright'
+" let g:unite_enable_start_insert = 1
+" let g:unite_winheight = 10
+" let g:unite_split_rule = 'botright'
 
 " Prompt choices.
-"let g:unite_prompt = '❫ '
-"let g:unite_prompt = '» '
-let g:unite_source_history_yank_enable =1  "history/yankの有効化
+" let g:unite_prompt = '❫ '
+" let g:unite_prompt = '» '
+" let g:unite_source_history_yank_enable =1  "history/yankの有効化
 
 autocmd FileType unite nnoremap <silent> <buffer> <esc><esc> <esc>:q<CR>
 autocmd FileType unite inoremap <silent> <buffer> <esc><esc> <esc>:q<CR>

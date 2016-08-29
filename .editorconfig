@@ -60,3 +60,13 @@ indent_size = 2
 [*.xml]
 indent_style = space
 indent_size = 2
+
+# for json
+[*.json]
+indent_style = space
+indent_size = 2
+
+# for puppet
+[*.pp]
+indent_style = space
+indent_size = 2
