@@ -138,7 +138,6 @@ alias l='ls'
 alias ll='ls -AFltr'
 alias e='exit'
 alias v='vim'
-alias m='mvim'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias sed='gsed'
@@ -165,7 +164,7 @@ alias gci='git commit -v'
 alias gls='git ls-files'
 
 # ------temp alias----
-alias complesso_chef='ssh -i ~/keys/murai_test.key A13978@10.4.29.11'
+alias complesso_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.29.11'
 alias cyberss_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.26.11'
 alias lodeo_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.31.13'
 

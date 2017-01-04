@@ -62,8 +62,8 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 [[ -s "/Users/a13978/.gvm/bin/gvm-init.sh" ]] && source "/Users/a13978/.gvm/bin/gvm-init.sh"
 
 # NODEBREW用PATH指定
-# export PATH=$HOME/.nodebrew/current/bin:$PATH
-# export NODEBREW_ROOT=$HOME/.nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export NODEBREW_ROOT=$HOME/.nodebrew
 
 # PYTHON用設定（pythonbrewを使用）
 # export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
@@ -73,8 +73,8 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 # export PATH=$PATH:$HOME/perl5/perlbrew/bin
 
 # virtualenv settings
-export WORKON_HOME=$HOME/.virtualenvs
-. /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# . /usr/local/bin/virtualenvwrapper.sh
 
 # rbenv initがやっていること #
 # - $RBENV_ROOT/shims以下にPATHを通す
