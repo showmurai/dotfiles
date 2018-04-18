@@ -7,27 +7,27 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 # lessの設定 http://qiita.com/hatchinee/items/586fb1c4915e2bb5c03b
 export LESS='-gj10 --RAW-CONTROL-CHARS'
 
-# homebrew のパス
-BREW_PATH=`/usr/local/bin/brew --prefix`
-export BREW_PATH
+# anyenv のパス
+export ANYENV=$HOME/.anyenv
 
-# rbenvのパス
-export RBENV_ROOT=/usr/local/var/rbenv
+# homebrew のパス
+export BREW_PATH=`/usr/local/bin/brew --prefix`
 
 # go-langのパス
-GOPATH=$HOME/go
-export GOPATH
-
+export GOPATH=$HOME/go
 
 # 以下のパスについては重複を削除する
 typeset -U path cdpath fpath manpath
 
 # homebrewとcoreutils優先の設定
 path=(
-    # rbenvで通らないパスを指定
-    $RBENV_ROOT/bin(N-/)
 
-    # homebrew $RBENV_ROOT/bin(N-/)で導入したのを優先で使用する
+    # anyenv 向けのパス
+    # $ANYENV/bin((N-/)
+    $HOME/.anyenv/bin(N-/)
+    $HOME/.nodebrew/current/bin(N-/)
+
+    # homebrew 向けのパス
     $BREW_PATH/bin(N-/)
 
     # デフォルトのコマンドをGNUコマンドで
@@ -42,7 +42,7 @@ path=(
 
     # go向けのパス
     $HOME/go/bin
-    )
+)
 export path
 
 # zsh-completions の設定
@@ -50,37 +50,14 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
-# TeXLive用PATH指定
-# export PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin
-
-# Cabal(Haskell)用設定
-# export PATH=$PATH:$HOME/.cabal/bin
-
-# JAVA用PATH指定
-#
-# THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/a13978/.gvm/bin/gvm-init.sh" ]] && source "/Users/a13978/.gvm/bin/gvm-init.sh"
-
-# NODEBREW用PATH指定
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export NODEBREW_ROOT=$HOME/.nodebrew
-
-# PYTHON用設定（pythonbrewを使用）
-# export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:$PYTHONPATH
-# export WORKON_HOME=$HOME/.virtualenvs
-
-# perlbrew用環境設定
-# export PATH=$PATH:$HOME/perl5/perlbrew/bin
-
-# virtualenv settings
-# export WORKON_HOME=$HOME/.virtualenvs
-# . /usr/local/bin/virtualenvwrapper.sh
-
 # rbenv initがやっていること #
 # - $RBENV_ROOT/shims以下にPATHを通す
 # - rbenvへの補完関数のロード
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which anyenv > /dev/null; then eval "$(anyenv init -)"; fi
 
 # scala
 export PATH=$PATH:/usr/local/src/scala/bin
 export SCALA_HOME=/usr/local/src/scala
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

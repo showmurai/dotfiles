@@ -125,7 +125,6 @@ precmd () {
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-RPROMPT="%1(v|%F{green}%1v%f|)"
 
 export GIT_PAGER=less
 if [[ -x `whence -p lv` ]]; then
@@ -151,7 +150,7 @@ alias gs='git status -sb'
 alias gg='git grep -n'
 alias gsd='git diff'
 alias gco='git checkout'
-alias gft='git fetch -p'
+alias gft='git fetch -p --all'
 alias gre='git rebase'
 alias gres='git reset --hard'
 alias gup='git pull --rebase'
@@ -162,11 +161,6 @@ alias gbr='git br'
 alias gad='git ad'
 alias gci='git commit -v'
 alias gls='git ls-files'
-
-# ------temp alias----
-alias complesso_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.29.11'
-alias cyberss_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.26.11'
-alias lodeo_chef='ssh -i ~/keys/murai_test.key murai_shotaro@10.4.31.13'
 
 # cd したら自動で lsしてくれる
 function chpwd() { ls }
@@ -220,7 +214,22 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-# Reading for aws cli
-# source /usr/local/bin/aws_zsh_completer.sh
-
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/show/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/show/google-cloud-sdk/completion.zsh.inc'; fi
+
+source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+RPROMPT="%1(v|%F{green}%1v%f|)"
+
+# Google Cloud Platform: info
+gcp_info() {
+  if [ -f "$HOME/.config/gcloud/active_config" ]; then
+    gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+    gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+    if [ ! -z ${gcp_project} ]; then
+      echo "${_prompt_my_colors[1]}ⓖ %f${gcp_project}"
+    fi
+  fi
+}
