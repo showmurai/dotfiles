@@ -12,7 +12,7 @@ setopt HIST_IGNORE_SPACE          # 行頭がスペースのコマンドは記�
 
 # プロンプト指定
 PROMPT="
-%{${fg[red]}%}[%n@%m] %{${fg[yellow]}%}%~%{${reset_color}%}
+%{${fg[red]}%}[%n@%m] %{${fg[yellow]}%}%~%{${reset_color}%}  %1(v|%F{green}%1v%f|)
 %(?.%{$fg[green]%}.%{$fg[blue]%})%(?!(*'-') <!(*;-;%)? <)%{${reset_color}%} "
 
 # プロンプト指定(コマンドの続き)
@@ -95,10 +95,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #コマンドにsudoを付けても補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-# tig補完
-# TODO: バージョンとか上がってもtig-completion.bashを読み込めるようにする方法を探す
-[[ -f /usr/local/Cellar/tig/2.1.1/etc/bash_completion.d/tig-completion.bash ]] && . /usr/local/Cellar/tig/2.1.1/etc/bash_completion.d/tig-completion.bash
-
 #補完リストが多いときに尋ねない
 LISTMAX=1000
 
@@ -140,7 +136,7 @@ alias v='vim'
 alias vrc='vim ~/.vimrc'
 alias zrc='vim ~/.zshrc'
 alias sed='gsed'
-# alias ag="ag --pager 'less -R'"
+
 # for tmux
 alias tmux-copy='tmux save-buffer - | reattach-to-user-namespace pbcopy'
 
@@ -186,7 +182,6 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
-# pip zsh completion end
 
 # autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
@@ -221,7 +216,6 @@ if [ -f '/Users/show/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users
 
 source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
-RPROMPT="%1(v|%F{green}%1v%f|)"
 
 # Google Cloud Platform: info
 gcp_info() {

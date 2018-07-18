@@ -30,6 +30,9 @@ path=(
     # homebrew 向けのパス
     $BREW_PATH/bin(N-/)
 
+    # google cloud sdk のパス
+    $HOME/google-cloud-sdk/bin
+
     # デフォルトのコマンドをGNUコマンドで
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin(N-/)
     $(/usr/local/bin/brew --prefix gnu-sed)/libexec/gnubin(N-/)
@@ -40,6 +43,7 @@ path=(
     /usr/sbin(N-/)
     /sbin(N-/)
 
+
     # go向けのパス
     $HOME/go/bin
 )
@@ -47,8 +51,8 @@ export path
 
 # zsh-completions の設定
 fpath=(/usr/local/share/zsh-completions $fpath)
-
 fpath=(/usr/local/share/zsh/site-functions $fpath)
+fpath=($HOME/.zsh/completions $fpath)
 
 # rbenv initがやっていること #
 # - $RBENV_ROOT/shims以下にPATHを通す
