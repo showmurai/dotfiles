@@ -33,5 +33,7 @@ ln -fs "$path"/.vimrc "$HOME"/.vimrc
 ln -fs "$path"/.gitconfig "$HOME"/.gitconfig
 ln -fs "$path"/.editorconfig "$HOME"/.editorconfig
 ln -fs "$path"/.tigrc "$HOME"/.tigrc
+mkdir -p "$HOME"/.config/ghostty
+ln -fs "$path"/.config/ghostty/config "$HOME"/.config/ghostty/config
 
 echo "Done!"
