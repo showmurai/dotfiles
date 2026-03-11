@@ -162,7 +162,7 @@ alls() {
     fi
 }
 zle -N alls
-bindkey "\C-m" alls
+# bindkey "\C-m" alls
 
 # ------------------------------
 # History Search (peco)
@@ -170,7 +170,7 @@ bindkey "\C-m" alls
 
 if (( $+commands[peco] )); then
   function peco-select-history() {
-      BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | peco --query "$LBUFFER")
+      BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco --query "$LBUFFER")
       CURSOR=$#BUFFER
       zle clear-screen
   }
