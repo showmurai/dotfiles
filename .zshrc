@@ -162,7 +162,7 @@ alls() {
     fi
 }
 zle -N alls
-# bindkey "\C-m" alls
+bindkey "\C-m" alls
 
 # ------------------------------
 # History Search (peco)
