@@ -68,6 +68,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 if (( $+commands[anyenv] )); then eval "$(anyenv init -)"; fi
 if (( $+commands[nodenv] )); then eval "$(nodenv init -)"; fi
 if (( $+commands[mise] )); then eval "$(mise activate zsh)"; fi
-if (( $+commands[op] )); then eval "$(op completion zsh)"; compdef _op op; fi
+
 
 unset _brew_prefix
