@@ -15,26 +15,32 @@ const s:denops_src = expand('~/.vim/bundles/denops.vim')
 " Set dpp runtime path (required)
 execute 'set runtimepath^=' .. s:dpp_src
 
-if s:dpp_base->dpp#min#load_state()
-  " NOTE: dpp#make_state() requires denops.vim
-  execute 'set runtimepath^=' .. s:denops_src
+const s:dpp_config = expand('~/.vim/dpp/dpp.ts')
 
-  " Bootstrap: add ext/protocol plugins to runtimepath
-  for s:plugin in [
-        \ 'dpp-ext-installer',
-        \ 'dpp-ext-lazy',
-        \ 'dpp-ext-toml',
-        \ 'dpp-protocol-git',
-        \ ]
-    execute 'set runtimepath^=' .. expand('~/.vim/bundles/' .. s:plugin)
-  endfor
+const s:bootstrap_plugins = [
+      \ 'dpp-ext-installer',
+      \ 'dpp-ext-lazy',
+      \ 'dpp-ext-toml',
+      \ 'dpp-protocol-git',
+      \ ]
+
+if s:dpp_base->dpp#min#load_state()
+  " Set config_path so dpp#async_ext_action() works before cache is built
+  let g:dpp.settings.config_path = s:dpp_config
 
   autocmd User DenopsReady
   \ : echohl WarningMsg
   \ | echomsg 'dpp load_state() is failed. Rebuilding cache...'
   \ | echohl NONE
-  \ | call dpp#make_state(s:dpp_base, expand('~/.vim/dpp/dpp.ts'))
+  \ | call dpp#make_state(s:dpp_base, s:dpp_config)
 endif
+
+" Always ensure bootstrap bundles are in runtimepath.
+" load_state() overwrites runtimepath via startup.vim, so re-add them here.
+execute 'set runtimepath^=' .. s:denops_src
+for s:plugin in s:bootstrap_plugins
+  execute 'set runtimepath^=' .. expand('~/.vim/bundles/' .. s:plugin)
+endfor
 
 autocmd User Dpp:makeStatePost
 \ : echohl MoreMsg
@@ -43,7 +49,7 @@ autocmd User Dpp:makeStatePost
 
 " Auto rebuild cache when config files are updated
 autocmd BufWritePost *.toml,*.ts,vimrc,.vimrc
-\ : if !dpp#check_files()->empty()
+\ : if 'dpp#check_files'->exists('*') && !dpp#check_files()->empty()
 \ |   call dpp#make_state()
 \ | endif
 
