@@ -5,6 +5,8 @@ root = true
 [*]
 charset = utf-8
 end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 
 # for makefile
 [Makefile]
@@ -26,23 +28,13 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
-# for javascript
-[*.js]
+# for javascript / typescript
+[*.{js,jsx,ts,tsx,mjs,cjs}]
 indent_style = space
 indent_size = 2
 
-# for c-lang
-[*.c]
-indent_style = tab
-indent_size = 4
-
-# for c++
-[*.cpp]
-indent_style = tab
-indent_size = 4
-
-# for header file
-[*.h]
+# for c/c++
+[*.{c,cpp,h}]
 indent_style = tab
 indent_size = 4
 
@@ -51,8 +43,8 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-# for ruby
-[*.yml]
+# for yaml / yml
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 
@@ -61,27 +53,12 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-# for json
-[*.json]
-indent_style = space
-indent_size = 2
-
-# for puppet
-[*.pp]
-indent_style = space
-indent_size = 2
-
-# for digdag
-[*.dig]
+# for json / toml
+[*.{json,toml}]
 indent_style = space
 indent_size = 2
 
 # for terraform
 [*.tf]
-indent_style = space
-indent_size = 2
-
-# for yaml
-[*.yaml]
 indent_style = space
 indent_size = 2
