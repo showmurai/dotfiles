@@ -1,7 +1,7 @@
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 window-width = 200
 window-height = 50
 copy-on-select = clipboard
 macos-option-as-alt = true
 shell-integration-features = true
-split-color = #f38ba8
+split-divider-color = white
