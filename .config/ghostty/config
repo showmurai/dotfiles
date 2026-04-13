@@ -1,4 +1,5 @@
 theme = Catppuccin Mocha
+working-directory = /Users/murai_shotaro
 window-width = 200
 window-height = 50
 copy-on-select = clipboard
