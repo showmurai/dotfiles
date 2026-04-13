@@ -170,7 +170,7 @@ bindkey "\C-m" alls
 
 if (( $+commands[peco] )); then
   function peco-select-history() {
-      BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco --query "$LBUFFER")
+      BUFFER=$(fc -rln 1 | awk '!a[$0]++' | peco --query "$LBUFFER")
       CURSOR=$#BUFFER
       zle clear-screen
   }

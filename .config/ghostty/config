@@ -5,3 +5,5 @@ copy-on-select = clipboard
 macos-option-as-alt = true
 shell-integration-features = true
 split-divider-color = white
+keybind = ctrl+i=text:\t
+keybind = super+n=new_tab
