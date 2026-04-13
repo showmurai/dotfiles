@@ -31,12 +31,12 @@
 [core]
     editor = vim
     quotepath = false
-    pager = /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [pager]
-    log = /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
-    show = /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
-    diff = /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
+    log = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+    diff = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
     compactionHeuristic = true
